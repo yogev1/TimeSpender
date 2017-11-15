@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+  	<link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+    <title>Timespender</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body style="background-color: white">
+  	<%= render '/layouts/navbar' %>
+    <%= yield %>
+  </body>
+</html>
