@@ -1,11 +1,41 @@
 {
-  "name": "timespender",
+  "name": "package.json",
   "private": true,
   "dependencies": {
     "@rails/webpacker": "^3.0.2",
-    "coffeescript": "1.12.7"
+    "babel-preset-react": "^6.24.1",
+    "coffeescript": "1.12.7",
+    "prop-types": "^15.6.0",
+    "react": "^16.1.1",
+    "react-bootstrap": "^0.31.5",
+    "react-dom": "^16.1.1",
+    "react-on-rails": "^10.0.2",
+    "react-stepzilla": "^4.6.3",
+    "react_ujs": "^2.4.2",
+    "reactstrap": "^5.0.0-alpha.4"
   },
   "devDependencies": {
     "webpack-dev-server": "^2.9.4"
-  }
+  },
+  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yogev1/timespender.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yogev1/timespender/issues"
+  },
+  "homepage": "https://github.com/yogev1/timespender#readme"
 }
+

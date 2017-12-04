@@ -1,0 +1,30 @@
+<div style="background: #F0F0F0; height: 50vw">
+  <div class="container font" style="margin-top: 70px">
+  	<div class="row">
+    	<div class="col-md-6" align="center" style="margin-top: 50px">	   
+  			<h1><%= @place.name%> will love to have you!<h1>
+  		</div>
+  	  <div class="col-md-6 text-center" style="margin-top: 50px">
+        <h3>Details</h3>
+        <div class="col-md-3">
+          <h4> Phone: </h4><h4><%= @place.phone%></h4>
+        </div>
+        <div class="col-md-3">  
+          <h4>Address: </h4><h4><%= @place.address%></h4>
+        </div>  
+        <div class="col-md-3">  
+          <h4>Current Rating: </h4><h4><%= @place.current_rating%></h4>
+        </div>  
+        <div class="col-md-3">        
+          <h4>Type of place: </h4><h4><%= @place.kind%></h4>
+        </div>  
+        <div class="col-md-3">        
+          <h4>Purpose of visit: </h4><h4><%= @place.purpose%></h4>
+        </div>  
+        <div class="col-md-3">        
+          <h4>Age Range: </h4><h4><%= @place.age_range%></h4>
+        </div>  
+  		</div>	
+  	</div>
+  </div>
+</div>  

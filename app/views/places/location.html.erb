@@ -1,0 +1,20 @@
+<div class="pic-back-choise" style="background: #F0F0F0; margin-top: 5%">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class="bold text-center" style="text-shadow: 5px 5px 5px grey; color: black; line-height: 100px; font-size: 350%">Location:</h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" style="margin-top: 3%">
+    <div class="row">
+      <% locations_list.each do |location| %>
+        <div class="col-md-4" style="margin-bottom:50px">
+          <div class="panel sharp-pan pic-pan-choise" style="background-image: url(<%= asset_path 'location-back6.jpeg' %>);"><a href="<%= next_wizard_path(place_type: params[:place_type], purpose: params[:purpose], location: location.parameterize)%>"><h1 class="logo-font box-font-choise text-center" style="font-size:300%; line-height: 100px"><%= location %></h1></a>
+          </div>
+        </div>
+      <% end %>      
+    </div>
+  </div> 
+</div>  

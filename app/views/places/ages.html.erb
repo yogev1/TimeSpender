@@ -1,0 +1,20 @@
+<div class="pic-back-choise" style="background-image: url(<%= asset_path 'age-back2.jpeg' %>); margin-top: 3%">
+  <div class="container">
+    <div class="row">
+      <class="col-md-12">
+        <h1 class="bold text-center" style="; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; color: white; line-height: 140px; font-size: 300%">Age Range:</h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row" style="margin-top: 20%">
+      <% ages.each do |age| %>
+        <div class="col-md-4" style="margin-bottom:40px">
+          <div class="panel sharp-pan pic-pan-choise" style="background-image: url(<%= asset_path 'age-back3.jpeg' %>);"><a href="<%= next_wizard_path(place_type: params[:place_type], purpose: params[:purpose], location: params[:location], age: age.parameterize)%>"><h1 class="logo-font box-font-choise text-center" style="font-size:300%; line-height: 100px"><%= age %></h1></a>
+          </div>
+        </div>
+      <% end %>      
+    </div>
+  </div> 
+</div>

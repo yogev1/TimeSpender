@@ -30,8 +30,9 @@ gem 'geocoder'
 gem 'gmaps4rails'
 
 # react.js
-gem 'webpacker', '~> 3.0'
-gem 'react_on_rails', '10.0.2'
+
+gem 'react-rails'
+
 
 
 group :development, :test do
@@ -65,3 +66,5 @@ end
 
 
 
+
+gem 'mini_racer', platforms: :ruby

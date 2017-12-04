@@ -1,0 +1,49 @@
+
+<%@computer_choise = rand (0..4)%>
+<div class="container" style="margin-top: 40px">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="bold text-center" style="text-shadow: 5px 5px 5px grey; color: black; line-height: 100px; font-size: 350%"><%=results[@computer_choise]%></h1>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="margin-top: 50px">
+  <div class="row">
+    <% @places.each_with_index do |place, index| %>
+      <div class="col-md-4">
+        <a href="<%= next_wizard_path(name: place.name)%>" style="text-decoration: none">
+          <div class="slide-wrapper">
+            <div class="slide-container">
+              <div class="slide">
+                <div class="slide-text">
+                  <h2 class="title"><%= place.name %></h2>
+                  <div class="rating">
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i>
+                  </div>
+                  <div class="summary font2">
+                    <h6>Address: <%= place.address %></h6>
+                    <h6>Phone: <%= place.phone %></h6>
+                    <h6>Current Rating: <%= place.current_rating %></h6>
+                    <h6>Location: <%= place.location %></h6>
+                    <h6>Age Range: <%= place.age_range %></h6>
+                  </div>
+                </div>
+                <div class="slice slice-1 slice-parent" style="background-image: url(<%= asset_path "bar_of_week.jpg" %>)">
+                  <div class="slice slice-2 slice-child" style="background-image: url(<%= asset_path "bar_of_week.jpg" %>)">
+                    <div class="slice slice-3 slice-child" style="background-image: url(<%= asset_path "bar_of_week.jpg" %>)">
+                      <div class="slice slice-4 slice-child" style="background-image: url(<%= asset_path "bar_of_week.jpg" %>)"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>    
+          </div>
+        </a>
+      </div>  
+    <% end %>
+  </div>
+</div>
+
+  
+

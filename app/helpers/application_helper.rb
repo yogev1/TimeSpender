@@ -1,6 +1,5 @@
 module ApplicationHelper
-
-    def loc_hash
+      def loc_hash
         {
             "work-your-charm" => "workcharm",
             "bar-crawl" => "crawl",
@@ -13,21 +12,21 @@ module ApplicationHelper
         }
     end
 
-	def operations
-		[
+  def operations
+    [
             {
-                name: "Grab a drink?",
+                name: "Grab A Drink",
                 operations: [
                     "Work your charm",
                     "Bar crawl",
-                    "Beer with buds",
+                    "Beer buds",
                     "For first dates",
                     "Get my money's worth",
-                    "We're too old for this s***"
+                    "We're too old for this"
                 ]
             },
             {
-                name: "Party?",
+                name: "Party",
                 operations: [
                     "With friends",
                     "The birthday place",
@@ -38,7 +37,7 @@ module ApplicationHelper
                 ]
             },
             {
-                name: "Dining?",
+                name: "Dining",
                 operations: [
                     "For me and the spouse",
                     "The hip place",
@@ -49,7 +48,7 @@ module ApplicationHelper
                 ]
             },
             {
-                name: "Art&museums?",
+                name: "Art & Museums",
                 operations: [
                     "Famous monuments",
                     "Galleries and secret jewels",
@@ -61,7 +60,7 @@ module ApplicationHelper
                 ]
             },
             {
-                name: "Explore the city?",
+                name: "Explore The City",
                 operations: [
                     "Special events",
                     "Concert",
@@ -70,9 +69,12 @@ module ApplicationHelper
                     "Must see",
                     "Air land and sea"
                 ]
-            }
+            },
+            {
+                name: "Feeling Lucky"
+            }            
         ]
-	end
+  end
 
     def locations_list
         [
@@ -124,4 +126,19 @@ module ApplicationHelper
         ]
     end
 
+   def resource_name
+    :user
+  end
+ 
+  def resource
+    @resource ||= User.new
+  end
+
+  def resource_class
+    User
+  end
+ 
+  def devise_mapping
+    @devise_mapping ||= Devise.mappings[:user]
+  end     
 end

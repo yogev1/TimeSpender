@@ -1,54 +1,43 @@
 class PlacesController < ApplicationController
+  include ApplicationHelper
   before_action :authenticate_user!, except: [:index]
-  before_action :set_place, only: [:show, :edit, :update, :destroy]
-  
   include Wicked::Wizard
   steps :purpose, :location, :ages, :result, :place_card
-  # GET /places
-  # GET /places.json
+
   def index
     @places = Place.all
-    @user_city = request.location.city
   end
 
-  # GET /places/1
-  # GET /places/1.json
   def show
     case step
-    when :purpose
-      @type = params[:type]
-      all_ops = operations
-      @type = all_ops.select {|op| op[:name].parameterize == params[:type]}.first
-      loc_hash 
+      when :purpose
+        @type = params[:place_type]
+        all_ops = operations
+        @type = all_ops.select {|op| op[:name].parameterize == params[:place_type]}.first
 
-    when :result
-
-      @places = Place.filtered(params).order("current_rating DESC", "updated_at DESC").limit(3)
-    
-    when :place_card
-      @place_card = Place.filtered(params).order("current_rating DESC", "updated_at DESC").card(params).third
-
-    end
+      when :result
+        @places = Place.filtered(params).order("current_rating DESC", "updated_at DESC").limit(3)
+      
+      when :place_card
+        @place = Place.find_by(name: params[:name])
+      end
     render_wizard    
   end
 
-  # GET /places/new
   def new
     @place = Place.new
   end
 
-  # GET /places/1/edit
   def edit
+    @place = Place.find_by(id: params[:id])
   end
 
-  # POST /places
-  # POST /places.json
   def create
     @place = Place.new(place_params)
 
     respond_to do |format|
       if @place.save
-        format.html { redirect_to @place, notice: 'Place was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Place was successfully created.' }
         format.json { render :show, status: :created, location: @place }
       else
         format.html { render :new }
@@ -62,7 +51,7 @@ class PlacesController < ApplicationController
   def update
     respond_to do |format|
       if @place.update(place_params)
-        format.html { redirect_to @place, notice: 'Place was successfully updated.' }
+        format.html { redirect_to root_path, notice: 'Place was successfully updated.' }
         format.json { render :show, status: :ok, location: @place }
       else
         format.html { render :edit }
@@ -82,10 +71,7 @@ class PlacesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_place
-      @place = Place.find(params[:id])
-    end
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def place_params

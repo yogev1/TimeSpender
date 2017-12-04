@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get '/landing', to: 'landing_page#index'
   devise_for :users
   resources :places
   resources :users
